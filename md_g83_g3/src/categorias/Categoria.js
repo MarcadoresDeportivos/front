@@ -53,12 +53,14 @@ export function CategoriaCrear(){
             .then(respuesta => respuesta.json())
             .then(datos => console.log(datos))
             .catch(err => console.error(err))
+
+        document.getElementById('form-categoria').reset()
     }
 
      return <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-9 offset-4">
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit} id="form-categoria">
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail">Crear categoría deportiva</label>
                                 <input type="text" className="form-control" id="exampleInputEmail" placeholder="Ingresa tu categoría" ref={inputCategoria}/>
