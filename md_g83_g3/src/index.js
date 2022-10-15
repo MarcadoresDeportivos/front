@@ -10,6 +10,7 @@ import reportWebVitals from './reportWebVitals';
 import './css/bootstrap.min.css'
 import { ListaEventos } from './events/ListaEventos';
 import { CategoriaListar, CategoriaCrear, CategoriaEditar } from './categorias/Categoria';
+import { EquipoListar, EquipoCrear, EquipoEditar } from './equipos/Equipos';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -31,6 +32,9 @@ root.render(
           <Route path='/categorias' element={ < CategoriaListar/>}></Route>
           <Route path='/categoria/crear' element={ < CategoriaCrear/>}></Route>
           <Route path='/categoria/editar' element={ < CategoriaEditar/>}></Route>
+          <Route path='/equipos' element={ < EquipoListar/>}></Route>
+          <Route path='/equipo/crear' element={ < EquipoCrear/>}></Route>
+          <Route path='/equipo/editar' element={ < EquipoEditar/>}></Route>
         </Routes>
           {/* <ListaEventos/> */}
         </div>
