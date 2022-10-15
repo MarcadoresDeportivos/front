@@ -8,11 +8,15 @@ import {Equipo} from './Equipo';
 import reportWebVitals from './reportWebVitals';
 import './css/bootstrap.min.css'
 import { ListaEventos } from './events/ListaEventos';
-
+import {Tablero} from './dashboard/Tablero'
+import { Login } from './users/Login';
+import {BrowserRouter as Router, Routes,Route} from 'react-router-dom'
+import { CategoriaCreate } from './categories/CategoriaCreate';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Router>
     <Menu/>
     {/* <Header/>
     <Evento fecha="2022-09-28" rival1="Equipo1" rival2="Equipo2"/>
@@ -23,12 +27,21 @@ root.render(
     <div className='container'>
       <div className='row align-center'>
         <div className='col m-5'>
-          <ListaEventos/>
+        <Routes>
+            <Route path="/" exact element={<ListaEventos/>}></Route>
+            <Route path="/login" exact element={<Login/>}></Route>
+            <Route path="/tablero/*" exact element={<Tablero/>}></Route>
+            <Route path="/categoriaCreate" exact element={<CategoriaCreate/>}></Route>
+          </Routes>
+          
+          
         </div>
 
       </div>
 
     </div>
+    </Router>
+    
   </React.StrictMode>
 );
 

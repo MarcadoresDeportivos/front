@@ -1,3 +1,4 @@
+import {Link ,BrowserRouter as Router} from 'react-router-dom'
 function Header(){
     return <h2>Bienvenido a marcadores</h2>
 }
@@ -5,7 +6,7 @@ function Header(){
 export function Menu(){
     return <nav className="navbar navbar-expand-lg bg-light">
   <div className="container-fluid">
-    <a className="navbar-brand" href="#">Navbar</a>
+    <Link className="navbar-brand" to="/" aria-label="Bootstrap">MD</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -34,7 +35,7 @@ export function Menu(){
       </ul>
       <form className="d-flex" role="search">
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button className="btn btn-outline-success" type="submit">Login</button>
+        <Link className="btn btn-outline-success" type="submit" to="/login">Login</Link>
       </form>
     </div>
   </div>
