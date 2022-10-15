@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import Header,{Menu} from './Header';
@@ -8,11 +9,14 @@ import {Equipo} from './Equipo';
 import reportWebVitals from './reportWebVitals';
 import './css/bootstrap.min.css'
 import { ListaEventos } from './events/ListaEventos';
+import { CategoriaListar, CategoriaCrear } from './categorias/Categoria';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <Router>
   <React.StrictMode>
+    
     <Menu/>
     {/* <Header/>
     <Evento fecha="2022-09-28" rival1="Equipo1" rival2="Equipo2"/>
@@ -23,13 +27,20 @@ root.render(
     <div className='container'>
       <div className='row align-center'>
         <div className='col m-5'>
-          <ListaEventos/>
+        <Routes>
+          <Route path='/categorias' element={ < CategoriaListar/>}></Route>
+          <Route path='/categoria/crear' element={ < CategoriaCrear/>}></Route>
+        </Routes>
+          {/* <ListaEventos/> */}
         </div>
 
       </div>
 
     </div>
+    
   </React.StrictMode>
+  </Router>
+
 );
 
 // If you want to start measuring performance in your app, pass a function
