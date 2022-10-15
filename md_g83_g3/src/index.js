@@ -9,7 +9,7 @@ import {Equipo} from './Equipo';
 import reportWebVitals from './reportWebVitals';
 import './css/bootstrap.min.css'
 import { ListaEventos } from './events/ListaEventos';
-import { CategoriaListar, CategoriaCrear } from './categorias/Categoria';
+import { CategoriaListar, CategoriaCrear, CategoriaEditar } from './categorias/Categoria';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -30,6 +30,7 @@ root.render(
         <Routes>
           <Route path='/categorias' element={ < CategoriaListar/>}></Route>
           <Route path='/categoria/crear' element={ < CategoriaCrear/>}></Route>
+          <Route path='/categoria/editar' element={ < CategoriaEditar/>}></Route>
         </Routes>
           {/* <ListaEventos/> */}
         </div>
