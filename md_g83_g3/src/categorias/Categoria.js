@@ -21,11 +21,18 @@ export function CategoriaListar(){
                 <div className="row">
                     <div className="col-md-9 offset-4">
                     {console.log(categorias)}
-                    <h1>Categorías deportivas </h1>
-                    
-                    <ul>
-                        {loader && categorias.map((item)=><li>{item.nombre}</li>)}
-                    </ul>
+
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                            <th scope="col">#</th>    
+                            <th scope="col">Categoría</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {loader && categorias.map((item, i=0)=><tr><td>{i + 1 }</td><td> {item.nombre}</td>   </tr>)}
+                        </tbody>
+                    </table>
                     </div>
                 </div>
             </div> 
