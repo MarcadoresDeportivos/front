@@ -9,37 +9,46 @@ import {Equipo} from './Equipo';
 import reportWebVitals from './reportWebVitals';
 import './css/bootstrap.min.css'
 import { ListaEventos } from './events/ListaEventos';
-
+<<<<<<< HEAD
 import {Tablero} from './dashboard/Tablero'
 import { Login } from './users/Login';
+import {BrowserRouter as Router, Routes,Route} from 'react-router-dom'
 import { CategoriaCreate } from './categories/CategoriaCreate';
-
-import { CategoriaList} from "./categories/CategoriaList";
+=======
 import { CategoriaListar, CategoriaCrear, CategoriaEditar } from './categorias/Categoria';
 import { EquipoListar, EquipoCrear, EquipoEditar } from './equipos/Equipos';
 
-
+>>>>>>> 22434a747334e37e957ce42d90088a601425c735
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Router>
-  {/* //<React.StrictMode> */}
-        
+  <React.StrictMode>
+<<<<<<< HEAD
+    <Router>
+=======
+    
+>>>>>>> 22434a747334e37e957ce42d90088a601425c735
+    <Menu/>
+    {/* <Header/>
+    <Evento fecha="2022-09-28" rival1="Equipo1" rival2="Equipo2"/>
+<Equipo nombre="Cali" jugados={12} promedio={3.4} ultimo="2022-09-15" record={[5,2]} internacional={true} ubicado={{pais: "Colombia", ciudad:"Cali"}}/>
 
-    <Menu/>    <div className='container'>
+    <App /> */}
+
+    <div className='container'>
       <div className='row align-center'>
         <div className='col m-5'>
         <Routes>
-
-            <Route path="/"  element={<ListaEventos/>}></Route>
-            <Route path="/login"  element={<Login/>}></Route>
-            <Route path="/tablero/*"  element={<Tablero/>}></Route>
-            <Route path="/categoriaCreate"  element={<CategoriaCreate/>}></Route>
-            <Route path="/tablero/categorialist"  element={<CategoriaList/>}></Route>
+<<<<<<< HEAD
+            <Route path="/" exact element={<ListaEventos/>}></Route>
+            <Route path="/login" exact element={<Login/>}></Route>
+            <Route path="/tablero/*" exact element={<Tablero/>}></Route>
+            <Route path="/categoriaCreate" exact element={<CategoriaCreate/>}></Route>
           </Routes>
           
           
-          <Routes>
+=======
           <Route path='/categorias' element={ < CategoriaListar/>}></Route>
           <Route path='/categoria/crear' element={ < CategoriaCrear/>}></Route>
           <Route path='/categoria/editar' element={ < CategoriaEditar/>}></Route>
@@ -48,15 +57,18 @@ root.render(
           <Route path='/equipo/editar' element={ < EquipoEditar/>}></Route>
         </Routes>
           {/* <ListaEventos/> */}
+>>>>>>> 22434a747334e37e957ce42d90088a601425c735
         </div>
 
       </div>
 
     </div>
-
-   
+<<<<<<< HEAD
+    </Router>
+=======
+>>>>>>> 22434a747334e37e957ce42d90088a601425c735
     
-  {/* //</React.StrictMode> */}
+  </React.StrictMode>
   </Router>
 
 );

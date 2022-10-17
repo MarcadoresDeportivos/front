@@ -1,6 +1,8 @@
 import { BrowserRouter as Router,Route,Routes,Link } from "react-router-dom";
+import React,{useRef} from 'react';
 export function CategoriaCreate(){
 
+    const refNombre = useRef(null)
     const handleSubmit = (ev)=>{
         ev.preventDefault()
         
@@ -15,11 +17,11 @@ export function CategoriaCreate(){
                 'Allow': 'GET, POST, OPTIONS, PUT, DELETE',
                 "Content-Type":"application/json; charset=utf-8"
             },
-            body:JSON.stringify({nombre: dep}),
+            body:JSON.stringify({nombre: refNombre.current.value}),
         }
-        fetch('http://localhost:3002/api/categoria/',requestOptions).
+        fetch('http://localhost:3000/api/categoria/',requestOptions).
         then(response=>response.json()).
-        then(data=>console.log(data)).
+        then(data=>console.log("data: "+data)).
         catch(error=>console.log("error: "+error+""))
     }
     return <div className="container-fluid">
@@ -30,7 +32,7 @@ export function CategoriaCreate(){
                         <label for="exampleInputEmail1">
                             Categoria Nombre
                         </label>
-                        <input type="text" className="form-control" placeholder="Categoría" onChange={function(){console.log("ds")}}/>
+                        <input type="text" className="form-control" placeholder="Categoría" onChange={function(){console.log("ds")}} ref={refNombre}/>
                     </div>
                     <div className="form-group my-4">
                         <button type="submit" className="btn btn-primary" >

@@ -1,27 +1,39 @@
-import { BrowserRouter as Router,Route,Routes,Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { React } from "react";
 import { CategoriaCreate } from "../categories/CategoriaCreate";
-
-export function Tablero(){
-     
-    return (
-      <div className="row">
-        <div className="col-3">
-            Menu
-            <ul>
-                <li><Link to="/tablero/categoriaCreate">Categorias</Link></li>
-                <li>Equipos</li>
-            </ul>
-          
-        </div>
-        <div className="col-9">
+import { CategoriaList } from "../categories/CategoriaList";
+export function Tablero() {
+  return <div className="row">
+      <div className="col-3">
+        Menu
+        <ul>
+          <li>
+            <Link to="/tablero/categorialist">Categorias</Link>
+          </li>
+          <li>
+            <Link to="/categoriaCreate">Equipos</Link>
+          </li>
+        </ul>
+      </div>
+      <div className="container">
+        <div className="row align-center">
+          <div className="col-9">
             <Routes>
-                <Route path="/categoriaCreate" element={<CategoriaCreate/>}></Route>
+              <Route
+                path="/categoriaCreate"
+                element={<CategoriaCreate />}
+              ></Route>
+              <Route
+                path="/tablero/categoriaList"
+                element={<CategoriaList />}
+              ></Route>
             </Routes>
-
+          </div>
         </div>
       </div>
-    );
-    // <div className="row">
+    </div>
+  {
+    /* // <div className="row">
     //     <div className="col-3">
     //         Menu
     //     </div>
@@ -29,7 +41,6 @@ export function Tablero(){
     //         Datos
     //     </div>
     // </div>
-    
-
-  
+     */
+  }
 }
