@@ -12,6 +12,7 @@ import { ListaEventos } from './events/ListaEventos';
 
 import {Tablero} from './dashboard/Tablero'
 import { Login } from './users/Login';
+import { Registro } from './users/Registro';
 import { CategoriaCreate } from './categories/CategoriaCreate';
 
 import { CategoriaList} from "./categories/CategoriaList";
@@ -33,6 +34,7 @@ root.render(
 
             <Route path="/"  element={<ListaEventos/>}></Route>
             <Route path="/login"  element={<Login/>}></Route>
+            <Route path="/register"  element={<Registro/>}></Route>
             <Route path="/tablero/*"  element={<Tablero/>}></Route>
             <Route path="/categoriaCreate"  element={<CategoriaCreate/>}></Route>
             <Route path="/tablero/categorialist"  element={<CategoriaList/>}></Route>

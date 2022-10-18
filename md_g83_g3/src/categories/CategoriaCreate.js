@@ -8,6 +8,7 @@ export function CategoriaCreate(){
         
         const dep = String('Baloncesto')
         console.log(JSON.stringify({"nombre": dep}))
+        const token = localStorage.getItem('token')
         const requestOptions = {
             method:"POST",
             headers:{
@@ -15,7 +16,8 @@ export function CategoriaCreate(){
                 'Access-Control-Allow-Headers': 'Authorization, X-API-KEY,Origin, X-Requested-with, Content-type,Accept, Access-Control-Allow-Request-Method',
                 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE',
                 'Allow': 'GET, POST, OPTIONS, PUT, DELETE',
-                "Content-Type":"application/json; charset=utf-8"
+                "Content-Type":"application/json; charset=utf-8",
+                'x-auth-token': token
             },
             body:JSON.stringify({nombre: refNombre.current.value}),
         }

@@ -1,6 +1,6 @@
 import {Link,useNavigate} from 'react-router-dom'
 import {useRef} from 'react'
-export function Login(){
+export function Registro(){
     const refCorreo = useRef(null)
     const refContrasena = useRef(null)
     const Navigate = useNavigate()
@@ -9,7 +9,7 @@ export function Login(){
         console.log("pb")
     }
 
-    function accesar(){
+    function registrar(){
        const requestOptions = {
         method : "POST",
         headers:{
@@ -18,7 +18,7 @@ export function Login(){
         body: JSON.stringify({email : refCorreo.current.value, password: refContrasena.current.value})
        }
 
-       fetch('http://localhost:3000/api/usuario/login/',requestOptions).
+       fetch('http://localhost:3000/api/usuario/',requestOptions).
        then(response=>response.json()).
        then(data=>{
             console.log(data)
@@ -33,7 +33,7 @@ export function Login(){
     const handleSubmit = (ev)=>{
         ev.preventDefault()
         console.log("sb")
-        accesar()
+        registrar()
     }
     return <div className="container-fluid">
         <div className="row">
@@ -53,7 +53,7 @@ export function Login(){
                     </div>
                     <div className="form-group my-4">
                         <button type="submit" className="btn btn-primary" onClick={handleBoton}>
-                            Acceder
+                            Registrarse
                         </button>
                         {/* <Link to="/tablero">Tablero</Link> */}
                     </div>

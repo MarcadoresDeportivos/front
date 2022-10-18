@@ -36,6 +36,7 @@ export function Menu(){
       <form className="d-flex" role="search">
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
         <Link className="btn btn-outline-success" type="submit" to="/login">Login</Link>
+        <Link className="btn btn-outline-success" type="submit" to="/register">Registro</Link>
       </form>
     </div>
   </div>

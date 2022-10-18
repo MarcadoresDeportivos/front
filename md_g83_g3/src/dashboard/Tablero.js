@@ -8,7 +8,7 @@ export function Tablero() {
         Menu
         <ul>
           <li>
-            <Link to="/tablero/categorialist">Categorias</Link>
+            <Link to="/tablero/categoriaList">Categorias</Link>
           </li>
           <li>
             <Link to="/categoriaCreate">Equipos</Link>
