@@ -1,12 +1,15 @@
 import {Link,useNavigate} from 'react-router-dom'
 import {useRef} from 'react'
+import {url} from '../elements/Const'
+import swal from 'sweetalert'
+
 export function Login(){
     const refCorreo = useRef(null)
     const refContrasena = useRef(null)
     const Navigate = useNavigate()
 
     const handleBoton = ()=>{
-        console.log("pb")
+        console.log("Presionando Boton")
     }
 
     function accesar(){
@@ -18,16 +21,33 @@ export function Login(){
         body: JSON.stringify({email : refCorreo.current.value, password: refContrasena.current.value})
        }
 
-       fetch('http://localhost:3000/api/usuario/login/',requestOptions).
-       then(response=>response.json()).
-       then(data=>{
+       fetch(url+'/usuario/login/',requestOptions)
+       .then(response=>response.json())
+       .then(data=>{
             console.log(data)
             if(data.token){
-                localStorage.setItem('token',data.token)
+                localStorage.setItem('token',data.token) //Una vez iniciado sesión, se guarda el Token para reusarlo por el tiempo establecido (3600sec)
+                swal({
+                    title:"Acceso",
+                    text : data.msj,
+                    icon :'success'
+                })                
                 Navigate("/tablero");
+            }else{
+                swal({
+                    title:"Acceso",
+                    text : data.msj,
+                    icon :'error'
+                })
             }
-        }).
-       catch(error=> console.log("error accesar"+error))
+        })
+       .catch(error=> {console.log("error accesar"+error)
+            swal({
+                title:"Error",
+                text :"Error en el Inicio de Sesión",
+                icon :'error' 
+            })
+        })
     }
 
     const handleSubmit = (ev)=>{

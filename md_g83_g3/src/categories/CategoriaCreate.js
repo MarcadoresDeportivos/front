@@ -1,14 +1,25 @@
 import { BrowserRouter as Router,Route,Routes,Link } from "react-router-dom";
 import React,{useRef} from 'react';
+import {url} from '../elements/Const'
+import swal from 'sweetalert'
 export function CategoriaCreate(){
 
     const refNombre = useRef(null)
     const handleSubmit = (ev)=>{
         ev.preventDefault()
         
-        const dep = String('Baloncesto')
-        console.log(JSON.stringify({"nombre": dep}))
-        const token = localStorage.getItem('token')
+        //Validaciones
+        if (refNombre.current.value==""){
+            swal({
+                title: "Validando Datos",
+                text: "Digita la categoria",
+                icon: 'warning'
+            })
+        }
+
+        //const dep = String('Baloncesto')
+        //console.log(JSON.stringify({"nombre": dep}))
+        const token = localStorage.getItem("token")
         const requestOptions = {
             method:"POST",
             headers:{
@@ -19,12 +30,25 @@ export function CategoriaCreate(){
                 "Content-Type":"application/json; charset=utf-8",
                 'x-auth-token': token
             },
-            body:JSON.stringify({nombre: refNombre.current.value}),
+            body:JSON.stringify({nombre: refNombre.current.value})
         }
-        fetch('http://localhost:3000/api/categoria/',requestOptions).
-        then(response=>response.json()).
-        then(data=>console.log("data: "+data)).
-        catch(error=>console.log("error: "+error+""))
+        fetch(url+'/categoria/',requestOptions)
+        .then(response=>response.json())
+        .then(data=>{console.log("data: "+data)
+            swal({
+                //La alerta bonita
+                title: "Categoria",
+                text: data.msj,
+                icon: 'success'
+            })
+        })
+        .catch(error=>{console.log("error: "+error)            
+            swal({
+                title:"Error",
+                text :"Error en la plataforma",
+                icon :'error'
+            })
+        })
     }
     return <div className="container-fluid">
          <div className="row">

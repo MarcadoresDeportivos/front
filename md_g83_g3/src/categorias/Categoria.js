@@ -85,13 +85,13 @@ export function CategoriaEditar(){
         const requestOptions = {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ _id: '634a07a5c3d19c8b6d499783', nombre: 'Futbol de salón' })
+            body: JSON.stringify({ _id: '635d933e6a033a40f287b23d', nombre: 'Futbol de salón' })
         };
         fetch('http://localhost:3000/api/categoria/', requestOptions)
             .then(response => response.json())
             .then(data => {
-                setCategoriaId('634a07a5c3d19c8b6d499783')
-                setCategoriaNombre('Fútbol de salón'); 
+                setCategoriaId('635d933e6a033a40f287b23d')
+                setCategoriaNombre('Futsal'); 
             });
 
     // empty dependency array means this effect will only run once (like componentDidMount in classes)

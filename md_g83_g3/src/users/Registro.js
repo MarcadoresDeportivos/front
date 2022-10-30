@@ -1,5 +1,6 @@
 import {Link,useNavigate} from 'react-router-dom'
 import {useRef} from 'react'
+//import swal from 'sweetalert'
 export function Registro(){
     const refCorreo = useRef(null)
     const refContrasena = useRef(null)
@@ -18,16 +19,16 @@ export function Registro(){
         body: JSON.stringify({email : refCorreo.current.value, password: refContrasena.current.value})
        }
 
-       fetch('http://localhost:3000/api/usuario/',requestOptions).
-       then(response=>response.json()).
-       then(data=>{
-            console.log(data)
-            if(data.token){
-                localStorage.setItem('token',data.token)
-                Navigate("/tablero");
-            }
-        }).
-       catch(error=> console.log("error accesar"+error))
+       fetch('http://localhost:3000/api/usuario/',requestOptions)
+        .then(response=>response.json())
+        .then(data=>{
+                console.log(data)
+                if(data.token){
+                    localStorage.setItem('token',data.token)
+                    Navigate("/tablero");
+                }
+            })
+        .catch(error=> console.log("error accesar"+error))
     }
 
     const handleSubmit = (ev)=>{

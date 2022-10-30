@@ -1,0 +1,11 @@
+# Instalar React Router
+# Para manejar rutas dentro de la aplicación, y que funcione el "npm start"
+npm i react-router-dom
+
+# Instalar para el consumo de servicios
+npm i cors
+
+Instalar libreria para las alertas
+npm i --save sweetalert
+
+

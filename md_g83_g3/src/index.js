@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
-import App from './App';
-import Header,{Menu} from './Header';
+// import App from '../src/App';
+import Header,{Menu} from './elements/Header';
 import {Evento} from './Evento';
 import {Equipo} from './Equipo';
 import reportWebVitals from './reportWebVitals';
@@ -31,17 +31,13 @@ root.render(
       <div className='row align-center'>
         <div className='col m-5'>
         <Routes>
+          <Route path="/"  element={<ListaEventos/>}></Route>
+          <Route path="/login"  element={<Login/>}></Route>
+          <Route path="/register"  element={<Registro/>}></Route>
+          <Route path="/tablero/*"  element={<Tablero/>}></Route>
+          <Route path="/categoriaCreate"  element={<CategoriaCreate/>}></Route>
+          <Route path="/tablero/categorialist"  element={<CategoriaList/>}></Route>
 
-            <Route path="/"  element={<ListaEventos/>}></Route>
-            <Route path="/login"  element={<Login/>}></Route>
-            <Route path="/register"  element={<Registro/>}></Route>
-            <Route path="/tablero/*"  element={<Tablero/>}></Route>
-            <Route path="/categoriaCreate"  element={<CategoriaCreate/>}></Route>
-            <Route path="/tablero/categorialist"  element={<CategoriaList/>}></Route>
-          </Routes>
-          
-          
-          <Routes>
           <Route path='/categorias' element={ < CategoriaListar/>}></Route>
           <Route path='/categoria/crear' element={ < CategoriaCrear/>}></Route>
           <Route path='/categoria/editar' element={ < CategoriaEditar/>}></Route>
