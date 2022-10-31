@@ -20,46 +20,35 @@ export function CategoriaEdit(){
                 text: "Digita la categoria",
                 icon: 'warning'
             })
+        }else{
+            const requestOptions = {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ _id: id, nombre: refNombre.current.value })
+            };
+            fetch('http://localhost:3000/api/categoria/', requestOptions)
+                .then(response => response.json())
+                .then(data => {
+                    setCategoriaId(id)
+                    setCategoriaNombre(refNombre.current.value); 
+                    swal({
+                        //La alerta bonita
+                        title: "Categoria Modificada",
+                        text: "Cambio realizado con éxito a "+refNombre.current.value,
+                        icon: 'success'
+                    })
+                })
+                .catch(error=>{console.log("error: "+error)            
+                swal({
+                    title:"Error",
+                    text :"Error en la plataforma",
+                    icon :'error'
+                })
+            });
         }
-
-        //const dep = String('Baloncesto')
-        //console.log(JSON.stringify({"nombre": dep}))
-        /*
-        const token = localStorage.getItem("token")
-        const requestOptions = {
-            method:"POST",
-            headers:{
-                "Access-Control-Allow-Origin": "*",
-                'Access-Control-Allow-Headers': 'Authorization, X-API-KEY,Origin, X-Requested-with, Content-type,Accept, Access-Control-Allow-Request-Method',
-                'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE',
-                'Allow': 'GET, POST, OPTIONS, PUT, DELETE',
-                "Content-Type":"application/json; charset=utf-8",
-                'x-auth-token': token
-            },
-            body:JSON.stringify({nombre: refNombre.current.value})
-        }
-        fetch(url+'/categoria/',requestOptions)
-        .then(response=>response.json())
-        .then(data=>{console.log("data: "+data)
-            swal({
-                //La alerta bonita
-                title: "Categoria",
-                text: data.msj,
-                icon: 'success'
-            })
-        })
-
-        .catch(error=>{console.log("error: "+error)            
-            swal({
-                title:"Error",
-                text :"Error en la plataforma",
-                icon :'error'
-            })
-        })
-        */
     }
 
-    useEffect(() => {
+    /*useEffect(() => {
         // PUT request using fetch inside useEffect React hook
         const requestOptions = {
             method: 'PUT',
@@ -74,7 +63,7 @@ export function CategoriaEdit(){
             });
 
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
-    }, []);
+    }, []);*/
 
     return <div className="container-fluid">
     <div className="row">

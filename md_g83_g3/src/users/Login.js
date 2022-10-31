@@ -28,14 +28,14 @@ export function Login(){
             if(data.token){
                 localStorage.setItem('token',data.token) //Una vez iniciado sesión, se guarda el Token para reusarlo por el tiempo establecido (3600sec)
                 swal({
-                    title:"Acceso",
+                    title:"Acceso exitoso",
                     text : data.msj,
                     icon :'success'
                 })                
                 Navigate("/tablero");
             }else{
                 swal({
-                    title:"Acceso",
+                    title:"Error de acceso",
                     text : data.msj,
                     icon :'error'
                 })
@@ -53,7 +53,17 @@ export function Login(){
     const handleSubmit = (ev)=>{
         ev.preventDefault()
         console.log("sb")
-        accesar()
+
+        //Validaciones
+        if (refCorreo.current.value=="" || refContrasena.current.value==""){
+            swal({
+                title: "Validando Datos",
+                text: "Digite todos los campos",
+                icon: 'warning'
+            })
+        }else{
+            accesar()
+        }                
     }
     return <div className="container-fluid">
         <div className="row">

@@ -1,6 +1,7 @@
 import {Link,useNavigate} from 'react-router-dom'
 import {useRef} from 'react'
-//import swal from 'sweetalert'
+import swal from 'sweetalert'
+
 export function Registro(){
     const refCorreo = useRef(null)
     const refContrasena = useRef(null)
@@ -11,7 +12,8 @@ export function Registro(){
     }
 
     function registrar(){
-       const requestOptions = {
+
+        const requestOptions = {
         method : "POST",
         headers:{
             'Content-Type' : 'application/json'
@@ -27,14 +29,37 @@ export function Registro(){
                     localStorage.setItem('token',data.token)
                     Navigate("/tablero");
                 }
-            })
-        .catch(error=> console.log("error accesar"+error))
+                swal({
+                    //La alerta bonita
+                    title: "Registro Exitoso",
+                    text: "Usuario Registrado",
+                    icon: 'success'
+                })
+            }
+            )
+        .catch(error=> {console.log("error accesar"+error)
+                    swal({
+                        title: "Registro Fallido",
+                        text: error,
+                        icon :'error'
+                    })})
     }
 
     const handleSubmit = (ev)=>{
         ev.preventDefault()
         console.log("sb")
-        registrar()
+        
+        //Validaciones
+        if (refCorreo.current.value=="" || refContrasena.current.value==""){
+            swal({
+                title: "Validando Datos",
+                text: "Digite todos los campos",
+                icon: 'warning'
+            })
+        }else{
+            registrar()
+        }        
+        
     }
     return <div className="container-fluid">
         <div className="row">

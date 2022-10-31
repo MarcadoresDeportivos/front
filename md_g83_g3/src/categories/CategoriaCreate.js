@@ -15,40 +15,41 @@ export function CategoriaCreate(){
                 text: "Digita la categoria",
                 icon: 'warning'
             })
-        }
+        }else{
 
-        //const dep = String('Baloncesto')
-        //console.log(JSON.stringify({"nombre": dep}))
-        const token = localStorage.getItem("token")
-        const requestOptions = {
-            method:"POST",
-            headers:{
-                "Access-Control-Allow-Origin": "*",
-                'Access-Control-Allow-Headers': 'Authorization, X-API-KEY,Origin, X-Requested-with, Content-type,Accept, Access-Control-Allow-Request-Method',
-                'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE',
-                'Allow': 'GET, POST, OPTIONS, PUT, DELETE',
-                "Content-Type":"application/json; charset=utf-8",
-                'x-auth-token': token
-            },
-            body:JSON.stringify({nombre: refNombre.current.value})
+            //const dep = String('Baloncesto')
+            //console.log(JSON.stringify({"nombre": dep}))
+            const token = localStorage.getItem("token")
+            const requestOptions = {
+                method:"POST",
+                headers:{
+                    "Access-Control-Allow-Origin": "*",
+                    'Access-Control-Allow-Headers': 'Authorization, X-API-KEY,Origin, X-Requested-with, Content-type,Accept, Access-Control-Allow-Request-Method',
+                    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE',
+                    'Allow': 'GET, POST, OPTIONS, PUT, DELETE',
+                    "Content-Type":"application/json; charset=utf-8",
+                    'x-auth-token': token
+                },
+                body:JSON.stringify({nombre: refNombre.current.value})
+            }
+            fetch(url+'/categoria/',requestOptions)
+            .then(response=>response.json())
+            .then(data=>{console.log("data: "+data)
+                swal({
+                    //La alerta bonita
+                    title: "Categoria",
+                    text: data.msj,
+                    icon: 'success'
+                })
+            })
+            .catch(error=>{console.log("error: "+error)            
+                swal({
+                    title:"Error",
+                    text :"Error en la plataforma",
+                    icon :'error'
+                })
+            })
         }
-        fetch(url+'/categoria/',requestOptions)
-        .then(response=>response.json())
-        .then(data=>{console.log("data: "+data)
-            swal({
-                //La alerta bonita
-                title: "Categoria",
-                text: data.msj,
-                icon: 'success'
-            })
-        })
-        .catch(error=>{console.log("error: "+error)            
-            swal({
-                title:"Error",
-                text :"Error en la plataforma",
-                icon :'error'
-            })
-        })
     }
     return <div className="container-fluid">
          <div className="row">
@@ -56,7 +57,7 @@ export function CategoriaCreate(){
                 <form role="form" onSubmit ={handleSubmit}>
                     <div className="form-group">
                         <label for="exampleInputEmail1">
-                            Categoria Nombre
+                            Ingresar el nombre de la categoria
                         </label>
                         <input type="text" className="form-control" placeholder="Categoría" onChange={function(){console.log("ds")}} ref={refNombre}/>
                     </div>
