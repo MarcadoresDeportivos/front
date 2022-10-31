@@ -1,7 +1,7 @@
-import { BrowserRouter as Router,Route,Routes,Link } from "react-router-dom";
 import React,{useRef} from 'react';
 import {url} from '../elements/Const'
 import swal from 'sweetalert'
+
 export function CategoriaCreate(){
 
     const refNombre = useRef(null)
@@ -16,9 +16,6 @@ export function CategoriaCreate(){
                 icon: 'warning'
             })
         }else{
-
-            //const dep = String('Baloncesto')
-            //console.log(JSON.stringify({"nombre": dep}))
             const token = localStorage.getItem("token")
             const requestOptions = {
                 method:"POST",

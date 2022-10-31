@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
+import {url} from '../elements/Const'
+
 export function EquipoListar(){
     const [ equipos, setEquipos] = useState()
     const [ loader, setloader] = useState(false)
@@ -9,7 +11,7 @@ export function EquipoListar(){
 
 
     useEffect(()=>{
-        fetch('http://localhost:3000/api/equipo', requestOptions)
+        fetch(url+'/equipo', requestOptions)
         .then(respuesta => respuesta.json())
         .then((equipos) =>  setEquipos(equipos))
         .catch(err => console.error(err))
@@ -55,7 +57,7 @@ export function EquipoCrear(){
         headers: { "Content-Type": "application/json" }
     }
     useEffect(()=>{
-        fetch('http://localhost:3000/api/categoria', requestOptions)
+        fetch(url+'/categoria', requestOptions)
         .then(respuesta => respuesta.json())
         .then((categorias) =>  setCategorias(categorias))
         .catch(err => console.error(err))
@@ -78,7 +80,7 @@ export function EquipoCrear(){
             body : JSON.stringify({ nombre : inputNombre.current.value, categoria : categoria})
     
         }
-        fetch('http://localhost:3000/api/equipo', requestOptions)
+        fetch(url+'/equipo', requestOptions)
             .then(respuesta => respuesta.json())
             .then(datos => console.log(datos))
             .catch(err => console.error(err))
@@ -121,7 +123,7 @@ export function EquipoEditar(){
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ _id: '634a9f60c4aaf04805cb78b1', nombre: 'Caballeros' })
         };
-        fetch('http://localhost:3000/api/equipo', requestOptions)
+        fetch(url+'/equipo', requestOptions)
             .then(response => response.json())
             .then(data => {
                 setEquipoId('634a9f60c4aaf04805cb78b1')

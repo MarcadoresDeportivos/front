@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
+import {url} from '../elements/Const'
+
 export function CategoriaListar(){
     const [ categorias, setCategorias] = useState()
     const [ loader, setloader] = useState(false)
@@ -7,9 +9,8 @@ export function CategoriaListar(){
         headers: { "Content-Type": "application/json" }
     }
 
-
     useEffect(()=>{
-        fetch('http://localhost:3000/api/categoria', requestOptions)
+        fetch(url+'/categoria', requestOptions)
         .then(respuesta => respuesta.json())
         .then((categorias) =>  setCategorias(categorias))
         .catch(err => console.error(err))
@@ -49,7 +50,7 @@ export function CategoriaCrear(){
             body : JSON.stringify({ nombre : inputCategoria.current.value})
     
         }
-        fetch('http://localhost:3000/api/categoria/', requestOptions)
+        fetch(url+'/categoria/', requestOptions)
             .then(respuesta => respuesta.json())
             .then(datos => console.log(datos))
             .catch(err => console.error(err))
@@ -87,7 +88,7 @@ export function CategoriaEditar(){
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ _id: '635d933e6a033a40f287b23d', nombre: 'Futbol de salón' })
         };
-        fetch('http://localhost:3000/api/categoria/', requestOptions)
+        fetch(url+'/categoria/', requestOptions)
             .then(response => response.json())
             .then(data => {
                 setCategoriaId('635d933e6a033a40f287b23d')

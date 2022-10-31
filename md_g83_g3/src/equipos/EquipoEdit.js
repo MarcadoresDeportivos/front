@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useParams } from 'react-router-dom';
 import swal from 'sweetalert'
+import {url} from '../elements/Const'
 
 export function EquipoEdit(){
     const refNombre = useRef(null)
@@ -26,7 +27,7 @@ export function EquipoEdit(){
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ _id: id, nombre: refNombre.current.value })
             };
-            fetch('http://localhost:3000/api/equipo/', requestOptions)
+            fetch(url+'/equipo/', requestOptions)
                 .then(response => response.json())
                 .then(data => {
                     setEquipoId(id)
@@ -48,23 +49,6 @@ export function EquipoEdit(){
         }
     }
 
-    /*useEffect(() => {
-        // PUT request using fetch inside useEffect React hook
-        const requestOptions = {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ _id: id, nombre: refNombre.current.value })
-        };
-        fetch('http://localhost:3000/api/equipo/', requestOptions)
-            .then(response => response.json())
-            .then(data => {
-                setEquipoId(id)
-                setEquipoNombre(refNombre.current.value); 
-            });
-
-    // empty dependency array means this effect will only run once (like componentDidMount in classes)
-    }, []);*/
-
     return <div className="container-fluid">
     <div className="row">
        <div className="col-md-4 offset-4">
@@ -85,13 +69,4 @@ export function EquipoEdit(){
    </div>
 </div>
 
-/*(
-        <div className="card text-center m-3">
-            <h5 className="card-header">Actualización de categoría deportiva </h5>
-            <div className="card-body">
-                <p><span style={{"font-weight": "bold"}}>Equipo Id:</span> {equipoId}</p>
-                <p><span style={{"font-weight": "bold"}}>Nombre de categoría </span>{equipoNombre}</p>
-            </div>
-        </div>
-    );*/
 }

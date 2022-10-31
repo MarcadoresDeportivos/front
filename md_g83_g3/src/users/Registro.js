@@ -1,5 +1,6 @@
 import {Link,useNavigate} from 'react-router-dom'
 import {useRef} from 'react'
+import {url} from '../elements/Const'
 import swal from 'sweetalert'
 
 export function Registro(){
@@ -21,7 +22,7 @@ export function Registro(){
         body: JSON.stringify({email : refCorreo.current.value, password: refContrasena.current.value})
        }
 
-       fetch('http://localhost:3000/api/usuario/',requestOptions)
+       fetch(url+'/usuario/',requestOptions)
         .then(response=>response.json())
         .then(data=>{
                 console.log(data)

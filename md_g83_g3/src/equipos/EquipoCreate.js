@@ -1,8 +1,7 @@
-import { BrowserRouter as Router,Route,Routes,Link } from "react-router-dom";
-//import React,{useRef} from 'react';
 import React, { useState, useEffect, useRef } from 'react'
 import {url} from '../elements/Const'
 import swal from 'sweetalert'
+
 export function EquipoCreate(){
 
     const refNombre = useRef(null)
@@ -24,7 +23,7 @@ export function EquipoCreate(){
         }
     }
     useEffect(()=>{
-        fetch('http://localhost:3000/api/categoria', requestOptions)
+        fetch(url+'/categoria', requestOptions)
         .then(respuesta => respuesta.json())
         .then((categorias) =>  setCategorias(categorias))
         .catch(err => console.error(err))

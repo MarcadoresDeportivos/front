@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useParams } from 'react-router-dom';
 import swal from 'sweetalert'
+import {url} from '../elements/Const'
 
 export function CategoriaEdit(){
     const refNombre = useRef(null)
@@ -26,7 +27,7 @@ export function CategoriaEdit(){
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ _id: id, nombre: refNombre.current.value })
             };
-            fetch('http://localhost:3000/api/categoria/', requestOptions)
+            fetch(url+'/categoria/', requestOptions)
                 .then(response => response.json())
                 .then(data => {
                     setCategoriaId(id)
@@ -48,23 +49,6 @@ export function CategoriaEdit(){
         }
     }
 
-    /*useEffect(() => {
-        // PUT request using fetch inside useEffect React hook
-        const requestOptions = {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ _id: id, nombre: refNombre.current.value })
-        };
-        fetch('http://localhost:3000/api/categoria/', requestOptions)
-            .then(response => response.json())
-            .then(data => {
-                setCategoriaId(id)
-                setCategoriaNombre(refNombre.current.value); 
-            });
-
-    // empty dependency array means this effect will only run once (like componentDidMount in classes)
-    }, []);*/
-
     return <div className="container-fluid">
     <div className="row">
        <div className="col-md-4 offset-4">
@@ -85,13 +69,4 @@ export function CategoriaEdit(){
    </div>
 </div>
 
-/*(
-        <div className="card text-center m-3">
-            <h5 className="card-header">Actualización de categoría deportiva </h5>
-            <div className="card-body">
-                <p><span style={{"font-weight": "bold"}}>Categoría Id:</span> {categoriaId}</p>
-                <p><span style={{"font-weight": "bold"}}>Nombre de categoría </span>{categoriaNombre}</p>
-            </div>
-        </div>
-    );*/
 }

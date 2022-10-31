@@ -6,19 +6,8 @@ export function CategoriaList(){
    const [categorias,setCategorias] = useState([])
    const [token,setToken] = useState([])
 
-    // const requestOptions={
-    //     method : "GET",
-    //     header:{
-    //         "Content-Type": "application/json"
-    //     },
-
-    // }
-    
     useEffect(()=>{
-        //const tokenR = localStorage.getItem("token")
-        //setToken(tokenR)
         const token = localStorage.getItem("token")
-        //console.log("THE: "+token)
         const requestOptions = {
             method:"GET",
             headers:{
@@ -37,23 +26,6 @@ export function CategoriaList(){
             .then(data=>{setCategorias(data)})
             .catch(error=>console.log("error: "+error+""))
     },[])
-    // const requestOptions = {
-    //     method:"GET",
-    //     headers:{
-            
-    //         "Content-Type":"application/json"
-    //     },
-    //     // body:JSON.stringify({nombre: refNombre.current.value}),
-    // }
-    // fetch('http://localhost:3000/api/categoria/',requestOptions).
-    // then(response=>response.json()).
-    // then(data=>{setCategorias(data)}).
-    // catch(error=>console.log("error: "+error+""))
-
-    // fetch("http://localhost:3000/api/categoria/",requestOptions).
-    //     then(response=>{response.json();res = response[0]}).
-    //     then(data=>{console.log("datacT : "+data)}).
-    // catch(error=>console.log("error categoría listar: "+error))
 
     return <div>
         <div className="text-center">

@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
 // import App from '../src/App';
 import Header,{Menu} from './elements/Header';
-import {Evento} from './Evento';
-import {Equipo} from './Equipo';
+//import {Evento} from './Evento';
+//import {Equipo} from './Equipo';
 import reportWebVitals from './reportWebVitals';
 import './css/bootstrap.min.css'
 import { ListaEventos } from './events/ListaEventos';
@@ -19,14 +19,10 @@ import { CategoriaList} from "./categories/CategoriaList";
 import { CategoriaListar, CategoriaCrear, CategoriaEditar } from './categories/Categoria';
 import { EquipoListar, EquipoCrear, EquipoEditar } from './equipos/Equipos';
 
-
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Router>
-  {/* //<React.StrictMode> */}
-        
-
+  {/* //<React.StrictMode> */}        
     <Menu/>    <div className='container'>
       <div className='row align-center'>
         <div className='col m-5'>
@@ -50,10 +46,7 @@ root.render(
 
       </div>
 
-    </div>
-
-   
-    
+    </div>       
   {/* //</React.StrictMode> */}
   </Router>
 

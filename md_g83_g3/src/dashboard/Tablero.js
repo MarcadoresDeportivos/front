@@ -40,21 +40,9 @@ export function Tablero() {
               <Route path='/equipoEdit/:id' element={ < EquipoEdit/>}></Route>
 
               <Route path="/equipoImagen/:id" element = {<EquipoImagen/>}></Route>
-              {/*<Route path='/equipo/crear' element={ < EquipoCrear/>}></Route>*/}
             </Routes>
           </div>
         </div>
       </div>
     </div>
-  {
-    /* // <div className="row">
-    //     <div className="col-3">
-    //         Menu
-    //     </div>
-    //     <div className="col-9">
-    //         Datos
-    //     </div>
-    // </div>
-     */
-  }
 }
