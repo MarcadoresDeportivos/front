@@ -16,7 +16,11 @@ export function Login(){
        const requestOptions = {
         method : "POST",
         headers:{
-            'Content-Type' : 'application/json'
+            "Access-Control-Allow-Origin": "*",
+            'Access-Control-Allow-Headers': 'Authorization, X-API-KEY,Origin, X-Requested-with, Content-type,Accept, Access-Control-Allow-Request-Method',
+            'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE',
+            'Allow': 'GET, POST, OPTIONS, PUT, DELETE',
+            "Content-Type":"application/json; charset=utf-8"
         },
         body: JSON.stringify({email : refCorreo.current.value, password: refContrasena.current.value})
        }

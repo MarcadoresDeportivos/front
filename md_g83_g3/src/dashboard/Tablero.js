@@ -3,8 +3,12 @@ import { React } from "react";
 import { CategoriaCreate } from "../categories/CategoriaCreate";
 import { CategoriaList } from "../categories/CategoriaList";
 import { CategoriaEdit } from "../categories/CategoriaEdit";
+
+import { EquipoCreate } from '../equipos/EquipoCreate';
+import { EquipoList } from '../equipos/EquipoList';
+import { EquipoEdit } from '../equipos/EquipoEdit';
+
 import { EquipoImagen } from "../teams/EquipoImagen";
-import { EquipoListar, EquipoCrear, EquipoEditar } from '../equipos/Equipos';
 
 export function Tablero() {
   return <div className="row">
@@ -18,7 +22,7 @@ export function Tablero() {
           </li>
           <br></br>
           <li>        
-            <a href="/equipos" class="btn btn-primary" role="button" aria-pressed="true">Equipos</a>
+            <a href="/tablero/equipoList" class="btn btn-primary" role="button" aria-pressed="true">Equipos</a>
           </li>
         </ul>
       </div>
@@ -30,10 +34,13 @@ export function Tablero() {
               <Route path="/categoriaCreate" element={<CategoriaCreate />} ></Route>
               <Route path="/categoriaList" element={<CategoriaList />} ></Route>
               <Route path="/categoriaEdit/:id" element={<CategoriaEdit />} ></Route>
+              
+              <Route path='/equipoCreate' element={ < EquipoCreate/>}></Route>
+              <Route path='/equipoList' element={ < EquipoList/>}></Route>                            
+              <Route path='/equipoEdit/:id' element={ < EquipoEdit/>}></Route>
+
               <Route path="/equipoImagen/:id" element = {<EquipoImagen/>}></Route>
-              <Route path='/equipos' element={ < EquipoListar/>}></Route>
-              <Route path='/equipo/crear' element={ < EquipoCrear/>}></Route>
-              <Route path='/equipo/editar' element={ < EquipoEditar/>}></Route>
+              {/*<Route path='/equipo/crear' element={ < EquipoCrear/>}></Route>*/}
             </Routes>
           </div>
         </div>

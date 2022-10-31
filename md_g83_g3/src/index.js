@@ -16,7 +16,7 @@ import { Registro } from './users/Registro';
 import { CategoriaCreate } from './categories/CategoriaCreate';
 
 import { CategoriaList} from "./categories/CategoriaList";
-import { CategoriaListar, CategoriaCrear, CategoriaEditar } from './categorias/Categoria';
+import { CategoriaListar, CategoriaCrear, CategoriaEditar } from './categories/Categoria';
 import { EquipoListar, EquipoCrear, EquipoEditar } from './equipos/Equipos';
 
 
