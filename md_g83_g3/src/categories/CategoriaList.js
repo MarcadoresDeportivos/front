@@ -4,6 +4,7 @@ import {url} from '../elements/Const'
 
 export function CategoriaList(){
    const [categorias,setCategorias] = useState([])
+   const [token,setToken] = useState([])
 
     // const requestOptions={
     //     method : "GET",
@@ -12,20 +13,29 @@ export function CategoriaList(){
     //     },
 
     // }
+    
     useEffect(()=>{
+        //const tokenR = localStorage.getItem("token")
+        //setToken(tokenR)
+        const token = localStorage.getItem("token")
+        //console.log("THE: "+token)
         const requestOptions = {
             method:"GET",
             headers:{
-                
-                "Content-Type":"application/json"
+                "Access-Control-Allow-Origin": "*",
+                'Access-Control-Allow-Headers': 'Authorization, X-API-KEY,Origin, X-Requested-with, Content-type,Accept, Access-Control-Allow-Request-Method',
+                'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE',
+                'Allow': 'GET, POST, OPTIONS, PUT, DELETE',
+                "Content-Type":"application/json; charset=utf-8",
+                'x-auth-token': token
             },
             // body:JSON.stringify({nombre: refNombre.current.value}),
         }
-        fetch(url+'/categoria/',requestOptions)
-        .then(response=>response.json())
-        .then(data=>{setCategorias(data)})
-        .catch(error=>console.log("error: "+error+""))
 
+        fetch(url+'/categoria/',requestOptions)
+            .then(response=>response.json())
+            .then(data=>{setCategorias(data)})
+            .catch(error=>console.log("error: "+error+""))
     },[])
     // const requestOptions = {
     //     method:"GET",
@@ -46,7 +56,7 @@ export function CategoriaList(){
     // catch(error=>console.log("error categoría listar: "+error))
 
     return <div>
-        <div class="text-center">
+        <div className="text-center">
             <Link to="/tablero/categoriaCreate" className="btn btn-success">Crear Nueva Categoria</Link>
         </div>
         <table className='table'>
