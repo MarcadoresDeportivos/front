@@ -18,11 +18,11 @@ export function Tablero() {
         <ul>
           <li>
             {/*<Link to="/tablero/categoriaList">Categorias</Link>*/}
-            <a href="/tablero/categoriaList" class="btn btn-primary" role="button" aria-pressed="true">Categorias</a>
+            <Link to="/tablero/categoriaList" class="btn btn-primary" role="button" aria-pressed="true">Categorias</Link>
           </li>
           <br></br>
           <li>        
-            <a href="/tablero/equipoList" class="btn btn-primary" role="button" aria-pressed="true">Equipos</a>
+            <Link to="/tablero/equipoList" class="btn btn-primary" role="button" aria-pressed="true">Equipos</Link>
           </li>
         </ul>
       </div>
@@ -31,15 +31,15 @@ export function Tablero() {
         <div className="row align-center">
           <div className="col-9">
             <Routes>
-              <Route path="/categoriaCreate" element={<CategoriaCreate />} ></Route>
-              <Route path="/categoriaList" element={<CategoriaList />} ></Route>
-              <Route path="/categoriaEdit/:id" element={<CategoriaEdit />} ></Route>
+              <Route path="/tablero/categoriaCreate" element={<CategoriaCreate />} ></Route>
+              <Route path="/tablero/categoriaList" element={<CategoriaList />} ></Route>
+              <Route path="/tablero/categoriaEdit/:id" element={<CategoriaEdit />} ></Route>
               
-              <Route path='/equipoCreate' element={ < EquipoCreate/>}></Route>
-              <Route path='/equipoList' element={ < EquipoList/>}></Route>                            
-              <Route path='/equipoEdit/:id' element={ < EquipoEdit/>}></Route>
+              <Route path='/tablero/equipoCreate' element={ < EquipoCreate/>}></Route>
+              <Route path='/tablero/equipoList' element={ < EquipoList/>}></Route>                            
+              <Route path='/tablero/equipoEdit/:id' element={ < EquipoEdit/>}></Route>
 
-              <Route path="/equipoImagen/:id" element = {<EquipoImagen/>}></Route>
+              <Route path="/tablero/equipoImagen/:id" element = {<EquipoImagen/>}></Route>
             </Routes>
           </div>
         </div>
