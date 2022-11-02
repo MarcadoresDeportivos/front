@@ -8,5 +8,5 @@ npm i cors
 Instalar libreria para las alertas
 npm i --save sweetalert
 
-Para ejecurtas
+Para ejecutar
 npm start
